@@ -4,7 +4,7 @@
 	<title>My Website</title>
 </head>
 <body>
-	<h1>Welcome to my website!</h1>
+	<h1>Note that some websites may not work</h1>
 	
 	<label for="websiteUrl">Enter the URL of the website you want to embed:</label>
 	<input type="text" id="websiteUrl" name="websiteUrl" placeholder="https://example.com">
@@ -14,9 +14,12 @@
 
 	<script>
 		function embedWebsite() {
-			var websiteUrl = document.getElementById("websiteUrl").value;
+			var websiteUrl = document.getElementById("websiteUrl").value.toLowerCase();
+			if (!websiteUrl.startsWith("https://")) {
+				websiteUrl = "https://" + websiteUrl;
+			}
 			var websiteEmbed = document.getElementById("websiteEmbed");
-			websiteEmbed.innerHTML = "<iframe src='" + websiteUrl + "' width='100%' height='600'></iframe>";
+			websiteEmbed.innerHTML = "<iframe src='" + websiteUrl + "' style='position:absolute;top:0;left:0;width:100%;height:100%;border:none;'></iframe>";
 		}
 	</script>
 </body>
