@@ -29,19 +29,6 @@
 		}
 	</script>
 	<h1>JavaScript Executor<h1>
-	<textarea id="codeInput" placeholder="Enter JavaScript code"></textarea>
-<button onclick="createBookmarklet()">Create Bookmarklet</button>
-<br>
-<script>
-  function createBookmarklet() {
-    var code = document.getElementById('codeInput').value;
-    var encodedCode = encodeURIComponent(code);
-    var link = document.createElement('a');
-    link.draggable = true;
-    link.innerText = 'Click me....................\nAfter you drag me to your bookmarks bar..\n\n';
-    link.href = 'javascript:(function(){' + decodeURIComponent(encodedCode) + '})()';
-    document.body.appendChild(link);
-  }
-</script>
+	<a draggable = true href="javascript:(function(){let answer = prompt('Code', 'Enter the code here'); if(code!=null){eval(answer);alert('Executed Code: ' + answer);}})">Drag me to your bookmark bar!</a>
 </body>
 </html>
